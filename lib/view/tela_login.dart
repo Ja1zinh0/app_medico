@@ -21,13 +21,13 @@ class _TelaLoginState extends State<TelaLogin> {
                 height: 230,
 
               ),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width - 100,
                 child: Column(
                   children: [
                     TextField(
                       decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(2),
+                      contentPadding: const EdgeInsets.all(2),
                       labelText: 'Email',
                       labelStyle: const TextStyle(fontSize: 18),
                       prefixIcon: const Icon(Icons.email_sharp),
@@ -39,12 +39,12 @@ class _TelaLoginState extends State<TelaLogin> {
 
               // ignore: prefer_const_constructors
               SizedBox(
-                height: 17,
+                height: 10,
 
               ),
                 TextField(
                       decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(2),
+                      contentPadding: const EdgeInsets.all(2),
                       labelText: 'Senha',
                       labelStyle: const TextStyle(fontSize: 18),
                       prefixIcon: const Icon(Icons.key_sharp),
@@ -53,6 +53,29 @@ class _TelaLoginState extends State<TelaLogin> {
                     ),
                   ),
                 ),
+
+                // ignore: prefer_const_constructors
+                SizedBox(
+                  height: 40,
+                ),
+                SizedBox(
+                  width: 160,
+                  height: 32,
+                  child: ElevatedButton( 
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 90, 194, 94),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                    ),
+
+                    onPressed: (){
+                
+                    },
+                
+                    child: const Text('Entrar'),
+                  ),
+                )
                 ],
                 )
               )
