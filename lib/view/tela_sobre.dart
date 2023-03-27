@@ -1,6 +1,8 @@
 import 'package:app_prototipo/view/tela_login.dart';
 import 'package:flutter/material.dart';
 
+import 'importar_fotos.dart';
+
 class TelaSobre extends StatefulWidget {
   const TelaSobre({super.key});
 
@@ -29,13 +31,13 @@ class _TelaSobreState extends State<TelaSobre> {
                         }, 
                         icon: const Icon(Icons.arrow_back_ios_new_outlined)
                         ),
-                  SizedBox(width: 370),
+                  const SizedBox(width: 370),
                 ],
               ),
 
           Column(
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
               SizedBox(
                   width: MediaQuery.of(context).size.width - 25,
                   child: const Text('O tema escolhido para este projeto foi um sistema de busca de especialistas em uma determinada região.',
@@ -55,7 +57,7 @@ class _TelaSobreState extends State<TelaSobre> {
                     ),
                   ),
                 ), 
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               SizedBox(
                   width: MediaQuery.of(context).size.width - 25,
                   child: const Text('Desenvolvedores: ',
@@ -65,6 +67,46 @@ class _TelaSobreState extends State<TelaSobre> {
                     ),
                   ),
                 ),
+              Column(
+                children: [
+                const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/joao.png',
+                         scale: 5.5,
+                      ),
+          const SizedBox(width: 10),
+                    Image.asset(
+                     'assets/images/camila.png',
+                     scale: 6.8,
+                     ),
+                    ],
+                  ),
+              Row(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  const SizedBox(
+                      child: Text('João do pog',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  const SizedBox(width: 80,),
+                    const SizedBox(
+                      child: Text('Camila das cor',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+                ],
+              ),
             ],
           ),
             ],
