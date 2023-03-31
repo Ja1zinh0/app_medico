@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'funcoes.dart';
 
 class TelaCadastrar extends StatefulWidget {
@@ -42,7 +43,7 @@ class TelaCadastrarState extends State<TelaCadastrar> {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               InserirTexto(
                 controller: txtNome,
@@ -51,7 +52,7 @@ class TelaCadastrarState extends State<TelaCadastrar> {
                 labelIcon: Icons.person_2,
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               InserirTexto(
                 controller: txtEmail,
@@ -60,7 +61,7 @@ class TelaCadastrarState extends State<TelaCadastrar> {
                 labelIcon: Icons.email_rounded,
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               InserirTexto(
                 controller: txtSenha,
@@ -68,11 +69,9 @@ class TelaCadastrarState extends State<TelaCadastrar> {
                 labelText: 'Senha',
                 labelIcon: Icons.key,
               ),
-
               const SizedBox(
                 height: 50,
               ),
-
               SizedBox(
                 width: 160,
                 height: 32,
@@ -92,6 +91,37 @@ class TelaCadastrarState extends State<TelaCadastrar> {
                     ),
                   ),
                 ),
+              ),
+
+              const SizedBox(height: 70,),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: const FaIcon(
+                      FontAwesomeIcons.google,
+                      color: Colors.black,
+                      size: 50.0,
+                    ),
+                  ),
+
+                  SizedBox(width: 50,),
+
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: const FaIcon(
+                      FontAwesomeIcons.facebook,
+                      color: Colors.black,
+                      size: 50.0,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
