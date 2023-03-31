@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'funcoes.dart';
 import 'tela_recSenha.dart';
 import 'tela_sobre.dart';
 
@@ -35,51 +36,25 @@ class _TelaLoginState extends State<TelaLogin> {
                       size: 200,
                     ),
                   ),
-
-                  TextField(
+                  InserirTexto(
                     controller: txtEmail,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(2),
-                      labelText: 'Email',
-                      labelStyle: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                      prefixIcon: const Icon(Icons.email_rounded),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                        borderSide: const BorderSide(
-                          width: 2,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
+                    context: context,
+                    labelText: 'Email',
+                    labelIcon: Icons.email_rounded,
                   ),
-
-                  // ignore: prefer_const_constructors
-                  SizedBox(
+                  
+                  const SizedBox(
                     height: 10,
                   ),
-                  TextField(
+
+                  InserirTexto(
                     controller: txtSenha,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(2),
-                      labelText: 'Senha',
-                      labelStyle: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      prefixIcon: const Icon(Icons.key_sharp),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                        borderSide: const BorderSide(
-                          width: 2,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
+                    context: context,
+                    labelText: 'Senha',
+                    labelIcon: Icons.key,
                   ),
 
-                  // ignore: prefer_const_constructors
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
 
@@ -108,7 +83,6 @@ class _TelaLoginState extends State<TelaLogin> {
                   const SizedBox(
                     height: 20,
                   ),
-
                   SizedBox(
                     width: 160,
                     height: 32,
@@ -133,7 +107,6 @@ class _TelaLoginState extends State<TelaLogin> {
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 25),
                   Row(
                     children: [
@@ -142,7 +115,13 @@ class _TelaLoginState extends State<TelaLogin> {
                             fontWeight: FontWeight.bold,
                           )),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            'telaCadastro',
+                            arguments: null,
+                          );
+                        },
                         child: const Text(
                           'Cadastre-se!',
                           style: TextStyle(

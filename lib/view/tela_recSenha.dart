@@ -2,6 +2,8 @@
 import 'package:app_prototipo/view/tela_login.dart';
 import 'package:flutter/material.dart';
 
+import 'funcoes.dart';
+
 class RecuperarSenha extends StatefulWidget {
   const RecuperarSenha({super.key});
 
@@ -57,27 +59,11 @@ class _RecuperarSenhaState extends State<RecuperarSenha> {
             const SizedBox(
               height: 25,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width - 25,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.all(2),
-                  labelText: 'Email',
-                  labelStyle: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  prefixIcon: const Icon(Icons.email_rounded),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: const BorderSide(
-                      width: 2,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
+            InserirTexto(
+                context: context,
+                labelText: 'Email',
+                labelIcon: Icons.email_rounded,
               ),
-            ),
             const SizedBox(
               height: 35,
             ),
