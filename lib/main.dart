@@ -5,6 +5,7 @@ import 'package:app_prototipo/view/tela_recSenha.dart';
 import 'package:flutter/material.dart';
 import 'view/tela_login.dart';
 import 'view/tela_sobre.dart';
+import 'view/tela_principal.dart';
 
 void main() {
   runApp(
@@ -18,6 +19,7 @@ void main() {
           'telaRecSenha': (context) => const RecuperarSenha(),
           'telaCadastro': (context) => const TelaCadastrar(),
           'telaSobre': (context) => const TelaSobre(),
+          'telaPrincipal': (context) => const TelaPrincipal(),
         }),
   );
 }

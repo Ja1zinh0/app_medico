@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'funcoes.dart';
-import 'tela_recSenha.dart';
-import 'tela_sobre.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
@@ -93,10 +91,13 @@ class _TelaLoginState extends State<TelaLogin> {
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                       ),
-                      onPressed: () {
-                        if (txtEmail.text.isEmpty && txtSenha.text.isEmpty) {
-                          mensagem('Por favor preencha os campos para entrar.');
-                        } else {}
+                      onPressed: () { 
+                          Navigator.pushNamed(
+                            context,
+                            'telaPrincipal',
+                            arguments: null,
+                          );
+                        
                       },
                       child: const Text(
                         'Entrar',
