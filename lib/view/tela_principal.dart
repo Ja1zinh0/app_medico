@@ -21,9 +21,12 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              Container(
+              SizedBox(
                 height: 85,
                 child: DrawerHeader(
+                  decoration: const BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 0)),
+                  ),
                   padding: EdgeInsets.zero,
                   child: Container(
                     color: const Color.fromARGB(255, 236, 252, 237),
@@ -52,10 +55,10 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                               ),
                               Row(
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 100,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.account_circle_outlined,
                                     size: 60,
                                   )
