@@ -30,7 +30,7 @@ Widget InserirTexto({
 Widget criarTexto(String texto){
   return Text(
     texto,
-    style: TextStyle(
+    style: const TextStyle(
       fontSize: 20,
       fontFamily: 'Arial',
       fontWeight: FontWeight.bold,

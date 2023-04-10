@@ -55,10 +55,10 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                               ),
                               Row(
                                 children: [
-                                  const SizedBox(
+                                  SizedBox(
                                     width: 100,
                                   ),
-                                  const Icon(
+                                  Icon(
                                     Icons.account_circle_outlined,
                                     size: 60,
                                   )
@@ -75,7 +75,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
               ListTile(
                 title: criarTexto('Editar perfil'),
                 onTap: () {
-                  // Faça algo ao pressionar o item "Teste"
+                   Navigator.pushNamed(context, 'editarPerfil', arguments: null);
                 },
               ),
               const Divider(

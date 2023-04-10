@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'view/tela_login.dart';
 import 'view/tela_sobre.dart';
 import 'view/tela_principal.dart';
+import 'view/editar_perfil.dart';
 
 void main() {
   runApp(
@@ -20,6 +21,7 @@ void main() {
           'telaCadastro': (context) => const TelaCadastrar(),
           'telaSobre': (context) => const TelaSobre(),
           'telaPrincipal': (context) => const TelaPrincipal(),
+          'editarPerfil': (context) => const EditarPerfil(),
         }),
   );
 }
