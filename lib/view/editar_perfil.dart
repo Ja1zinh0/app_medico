@@ -8,6 +8,7 @@ class EditarPerfil extends StatefulWidget {
 }
 
 class _EditarPerfilState extends State<EditarPerfil> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +17,8 @@ class _EditarPerfilState extends State<EditarPerfil> {
           Row(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                },
                 child: const Icon(
                   Icons.menu,
                   size: 50,
