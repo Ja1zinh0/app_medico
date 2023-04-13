@@ -68,11 +68,11 @@ class _RecuperarSenhaState extends State<RecuperarSenha> {
               height: 35,
             ),
             SizedBox(
-              width: 200,
-              height: 30,
+              width: 180,
+              height: 39,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 90, 194, 94),
+                  backgroundColor: const Color(0xFF96E4F4),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
@@ -83,6 +83,7 @@ class _RecuperarSenhaState extends State<RecuperarSenha> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 39, 39, 39),
+                    fontSize: 20,
                   ),
                 ),
               ),

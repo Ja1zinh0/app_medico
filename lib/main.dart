@@ -7,6 +7,7 @@ import 'view/tela_login.dart';
 import 'view/tela_sobre.dart';
 import 'view/tela_principal.dart';
 import 'view/editar_perfil.dart';
+import 'view/tela_favoritos.dart';
 
 void main() {
   runApp(
@@ -22,6 +23,7 @@ void main() {
           'telaSobre': (context) => const TelaSobre(),
           'telaPrincipal': (context) => const TelaPrincipal(),
           'editarPerfil': (context) => const EditarPerfil(),
+          'telaFavoritos': (context) => const TelaFavoritos(),
         }),
   );
 }

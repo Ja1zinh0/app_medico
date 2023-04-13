@@ -15,6 +15,7 @@ class _TelaLoginState extends State<TelaLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         body: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -22,18 +23,17 @@ class _TelaLoginState extends State<TelaLogin> {
           children: [
             // ignore: prefer_const_constructors
             SizedBox(
-              height: 100,
+              height: 70,
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width - 100,
               child: Column(
                 children: [
-                  const SizedBox(
-                    child: Icon(
-                      Icons.account_circle,
-                      size: 200,
-                    ),
-                  ),
+                  Image.asset(
+                          'assets/images/logo.png',
+                          scale: 5.5,
+                        ),
+                  SizedBox(height: 30,),
                   InserirTexto(
                     controller: txtEmail,
                     context: context,
@@ -82,11 +82,11 @@ class _TelaLoginState extends State<TelaLogin> {
                     height: 20,
                   ),
                   SizedBox(
-                    width: 160,
-                    height: 32,
+                    width: 180,
+                    height: 39,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 90, 194, 94),
+                        backgroundColor: const Color(0xFF96E4F4),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
@@ -104,6 +104,7 @@ class _TelaLoginState extends State<TelaLogin> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 39, 39, 39),
+                          fontSize: 20,
                         ),
                       ),
                     ),
@@ -146,27 +147,6 @@ class _TelaLoginState extends State<TelaLogin> {
                 const SizedBox(
                   width: 320,
                 ),
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'telaSobre',
-                            arguments: null);
-                      },
-                      icon: const Icon(Icons.help_rounded),
-                      iconSize: 50,
-                      color: const Color.fromARGB(255, 90, 194, 94),
-                    ),
-                    const Text(
-                      'Sobre',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 61, 61, 61),
-                      ),
-                    ),
-                  ],
-                ),
               ],
             )
           ],
@@ -186,7 +166,7 @@ class _TelaLoginState extends State<TelaLogin> {
             color: Color.fromARGB(255, 39, 39, 39),
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 90, 194, 94),
+        backgroundColor: const Color(0xFF96E4F4),
       ),
     );
   }

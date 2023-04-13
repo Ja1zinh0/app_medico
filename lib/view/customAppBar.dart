@@ -6,14 +6,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(width: 0, color: Colors.black),
-              ),
-            ),
+        border: Border(
+          bottom: BorderSide(width: 0, color: Colors.black),
+        ),
+      ),
       child: AppBar(
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         automaticallyImplyLeading: false,
-        
         actions: [
           Column(
             children: [
@@ -159,7 +158,7 @@ Widget buildDrawer(BuildContext context) {
         ListTile(
           title: criarTexto('Favoritos'),
           onTap: () {
-            // Faça algo ao pressionar o item "Favoritos"
+             Navigator.pushNamed(context, 'telaFavoritos', arguments: null);
           },
           shape: const Border(
             bottom: BorderSide(width: 2, color: Colors.black),
@@ -260,7 +259,7 @@ Widget buildEndDrawer(BuildContext context) {
         ListTile(
           title: criarTexto('Sobre'),
           onTap: () {
-            // Faça algo ao pressionar o item "Favoritos"
+            Navigator.pushNamed(context, 'telaSobre', arguments: null);
           },
           shape: const Border(
             bottom: BorderSide(width: 2, color: Colors.black),
@@ -269,7 +268,7 @@ Widget buildEndDrawer(BuildContext context) {
         ListTile(
           title: criarTexto('Log out'),
           onTap: () {
-            // Faça algo ao pressionar o item "Favoritos"
+            Navigator.pushNamed(context, 'telaLogin', arguments: null);
           },
           shape: const Border(
             bottom: BorderSide(width: 2, color: Colors.black),
