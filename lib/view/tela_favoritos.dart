@@ -58,27 +58,15 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
                         )
                       ),
                     subtitle: Text(
-                      lista[index].especializacao,
+                      ' • ${lista[index].especializacao}',
                       style: const TextStyle(
                         fontSize: 15,
                         color: Colors.black,
                       ),
                     ),
                     //Remover
-                    trailing: Container(
-                      padding: const EdgeInsets.only(right: 40, top: 16),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.delete_outline_rounded,
-                          color: Colors.black,
-                        ),
-                        onPressed: () {
-                          setState() {
-                            lista.removeAt(index);
-                          }
-                        },
-                      ),
-                    )),
+
+                    ),
               ),
             ],
           );
