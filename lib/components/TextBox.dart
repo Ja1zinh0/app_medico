@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'tela_principal.dart';
 
-Widget InserirTexto({
+Widget TextBox({
   required BuildContext context,
   String labelText = '',
   IconData labelIcon = Icons.person,
@@ -24,17 +23,6 @@ Widget InserirTexto({
           ),
         ),
       ),
-    ),
-  );
-}
-
-Widget criarTexto(String texto){
-  return Text(
-    texto,
-    style: const TextStyle(
-      fontSize: 20,
-      fontFamily: 'Arial',
-      fontWeight: FontWeight.bold,
     ),
   );
 }

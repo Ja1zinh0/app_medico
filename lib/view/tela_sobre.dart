@@ -1,6 +1,4 @@
-import 'package:app_prototipo/view/tela_login.dart';
 import 'package:flutter/material.dart';
-import 'funcoes.dart';
 
 class TelaSobre extends StatefulWidget {
   const TelaSobre({super.key});

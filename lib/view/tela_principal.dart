@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'customAppBar.dart';
+import '../components/customAppBar.dart';
 
 
 class TelaPrincipal extends StatefulWidget {
@@ -21,7 +21,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
 
       body: Column(
         children: [
-          SizedBox(height: 150,),
+          const SizedBox(height: 150,),
           Container(
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 179, 179, 179),
@@ -37,7 +37,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
         ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'funcoes.dart';
+import '../components/TextBox.dart';
 
 class TelaCadastrar extends StatefulWidget {
   const TelaCadastrar({super.key});
@@ -45,7 +45,7 @@ class TelaCadastrarState extends State<TelaCadastrar> {
               const SizedBox(
                 height: 20,
               ),
-              InserirTexto(
+              TextBox(
                 controller: txtNome,
                 context: context,
                 labelText: 'Nome',
@@ -54,7 +54,7 @@ class TelaCadastrarState extends State<TelaCadastrar> {
               const SizedBox(
                 height: 20,
               ),
-              InserirTexto(
+              TextBox(
                 controller: txtEmail,
                 context: context,
                 labelText: 'Email',
@@ -63,7 +63,7 @@ class TelaCadastrarState extends State<TelaCadastrar> {
               const SizedBox(
                 height: 20,
               ),
-              InserirTexto(
+              TextBox(
                 controller: txtSenha,
                 context: context,
                 labelText: 'Senha',
