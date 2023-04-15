@@ -19,7 +19,16 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
 
   @override
   void initState() {
-    lista.add(Profissional('João', 'especialista em corgis'));
+    lista.add(Profissional('Especialista1', 'especialidade1'));
+    lista.add(Profissional('Especialista2', 'especialidade2'));
+    lista.add(Profissional('Especialista3', 'especialidade3'));
+    lista.add(Profissional('Especialista4', 'especialidade4'));
+    lista.add(Profissional('Especialista5', 'especialidade5'));
+    lista.add(Profissional('Especialista6', 'especialidade6'));
+    lista.add(Profissional('Especialista7', 'especialidade7'));
+    lista.add(Profissional('Especialista8', 'especialidade8'));
+    lista.add(Profissional('Especialista9', 'especialidade9'));
+    lista.add(Profissional('Especialista10', 'especialidade10'));
 
     index = -1;
     super.initState();
@@ -42,9 +51,12 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
                 fontSize: 25,
               ),
             ),
+            
             Padding(
+              
               padding: EdgeInsets.only(left: 5, top: 3),
               child: Icon(
+                
                 Icons.star,
                 color: Colors.black,
               ),
@@ -53,8 +65,11 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
         ),
       ),
       body: Column(
+        
         children: [
+          
           Expanded(
+            
             child: listarContatos(),
           ),
         ],

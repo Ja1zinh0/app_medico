@@ -195,11 +195,11 @@ Widget buildEndDrawer(BuildContext context) {
                           ),
                         ),
                         Row(
-                          children: [
-                            const SizedBox(
+                          children: const [
+                            SizedBox(
                               width: 85,
                             ),
-                            const Icon(
+                            Icon(
                               Icons.settings,
                               size: 50,
                             )
