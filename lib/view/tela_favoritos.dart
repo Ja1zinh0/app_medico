@@ -1,3 +1,4 @@
+import '../components/bottomBar.dart';
 import '../model/profissional.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
   @override
   void initState() {
     lista.add(Profissional('João', 'especialista em corgis'));
+
     index = -1;
     super.initState();
   }
@@ -27,8 +29,37 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: const Text('Favoritos')),
-      body: Column(children: [Expanded(child: listarContatos())]),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: const Color(0xFF96E4F4),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              'Favoritos',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 25,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 5, top: 3),
+              child: Icon(
+                Icons.star,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: listarContatos(),
+          ),
+        ],
+      ),
+      bottomNavigationBar: CustomBottom(context),
     );
   }
 
@@ -38,10 +69,11 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
         itemBuilder: (context, index) {
           return Column(
             children: [
-              Card(
-                color: Colors.white,
-                elevation: 0,
-                child: ListTile(
+              InkWell(
+                onTap: () {},
+                child: Card(
+                  elevation: 0,
+                  child: ListTile(
                     leading: Container(
                         padding: const EdgeInsets.only(bottom: 20, left: 10),
                         child: const Icon(
@@ -54,9 +86,9 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
                         child: Text(
                           lista[index].nome,
                           style: const TextStyle(
-                              fontSize: 23),
-                        )
-                      ),
+                            fontSize: 23,
+                          ),
+                        )),
                     subtitle: Text(
                       ' • ${lista[index].especializacao}',
                       style: const TextStyle(
@@ -65,8 +97,25 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
                       ),
                     ),
                     //Remover
-
+                    trailing: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 14.0,
+                        right: 25,
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            lista.removeAt(index);
+                          });
+                        },
+                        icon: const Icon(
+                          Icons.star,
+                          color: Colors.black,
+                        ),
+                      ),
                     ),
+                  ),
+                ),
               ),
             ],
           );

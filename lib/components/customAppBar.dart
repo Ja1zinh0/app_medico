@@ -4,56 +4,49 @@ import 'package:flutter/material.dart';
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(width: 0, color: Colors.black),
+    return AppBar(
+      backgroundColor: const Color(0xFF96E4F4),
+      automaticallyImplyLeading: false,
+      actions: [
+        Column(
+          children: [
+            IconButton(
+              icon: const Icon(
+                Icons.menu,
+                size: 40,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            ),
+            const SizedBox(height: 1),
+          ],
         ),
-      ),
-      child: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        automaticallyImplyLeading: false,
-        actions: [
-          Column(
-            children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.menu,
-                  size: 40,
-                  color: Colors.black,
-                ),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              ),
-              const SizedBox(height: 1),
-            ],
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width - 90,
-          ),
-          Column(
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.settings,
-                      size: 35,
-                      color: Colors.black,
-                    ),
-                    onPressed: () {
-                      Scaffold.of(context).openEndDrawer();
-                    },
+        SizedBox(
+          width: MediaQuery.of(context).size.width - 90,
+        ),
+        Column(
+          children: [
+            Row(
+              children: [
+                IconButton(
+                  icon: const Icon(
+                    Icons.settings,
+                    size: 35,
+                    color: Colors.black,
                   ),
-                  const SizedBox(width: 9),
-                ],
-              ),
-              const SizedBox(height: 16),
-            ],
-          ),
-        ],
-      ),
+                  onPressed: () {
+                    Scaffold.of(context).openEndDrawer();
+                  },
+                ),
+                const SizedBox(width: 9),
+              ],
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
+      ],
     );
   }
 
@@ -63,10 +56,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
 Widget buildDrawer(BuildContext context) {
   return Drawer(
-    backgroundColor: const Color.fromARGB(255, 224, 241, 217),
+    backgroundColor: Color.fromARGB(255, 226, 255, 254),
     child: ListView(
       children: [
-        Container(
+        SizedBox(
           height: 80,
           child: DrawerHeader(
             padding: EdgeInsets.zero,
@@ -76,7 +69,7 @@ Widget buildDrawer(BuildContext context) {
               ),
             ),
             child: Container(
-              color: const Color.fromARGB(255, 236, 252, 237),
+              color: Color.fromARGB(255, 205, 245, 255),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Column(
@@ -171,10 +164,10 @@ Widget buildDrawer(BuildContext context) {
 
 Widget buildEndDrawer(BuildContext context) {
   return Drawer(
-    backgroundColor: const Color.fromARGB(255, 224, 241, 217),
+    backgroundColor: const Color.fromARGB(255, 226, 255, 254),
     child: ListView(
       children: [
-        Container(
+        SizedBox(
           height: 70,
           child: DrawerHeader(
             padding: EdgeInsets.zero,
@@ -184,7 +177,7 @@ Widget buildEndDrawer(BuildContext context) {
               ),
             ),
             child: Container(
-              color: const Color.fromARGB(255, 236, 252, 237),
+              color: const Color.fromARGB(255, 226, 255, 254),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Column(
