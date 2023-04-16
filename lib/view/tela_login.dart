@@ -143,8 +143,8 @@ class _TelaLoginState extends State<TelaLogin> {
                   height: 200,
                 ),
                 Row(
-                  children: [
-                    const SizedBox(
+                  children: const [
+                    SizedBox(
                       width: 320,
                     ),
                   ],
@@ -153,21 +153,5 @@ class _TelaLoginState extends State<TelaLogin> {
             ),
           ],
         ));
-  }
-
-  mensagem(msg) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        duration: const Duration(seconds: 2),
-        content: Text(
-          msg,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 39, 39, 39),
-          ),
-        ),
-        backgroundColor: const Color(0xFF96E4F4),
-      ),
-    );
   }
 }

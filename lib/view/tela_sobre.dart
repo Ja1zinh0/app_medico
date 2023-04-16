@@ -82,7 +82,7 @@ class _TelaSobreState extends State<TelaSobre> {
                       children: [
                         const SizedBox(
                           child: Text(
-                            'João do pog',
+                            'João do POG',
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
@@ -94,7 +94,7 @@ class _TelaSobreState extends State<TelaSobre> {
                         ),
                         const SizedBox(
                           child: Text(
-                            'Camila das cor',
+                            'Camila das ideia',
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,

@@ -14,8 +14,15 @@ Widget TextBox({
         contentPadding: const EdgeInsets.all(2),
         labelText: labelText,
         labelStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        prefixIcon: Icon(labelIcon),
+        prefixIcon: Icon(labelIcon, color: Colors.black),
         enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          borderSide: BorderSide(
+            width: 2,
+            color: enabledBorderColor,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: BorderSide(
             width: 2,

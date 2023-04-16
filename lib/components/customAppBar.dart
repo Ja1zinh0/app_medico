@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -56,7 +58,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
 Widget buildDrawer(BuildContext context) {
   return Drawer(
-    backgroundColor: Color.fromARGB(255, 226, 255, 254),
+    backgroundColor: const Color.fromARGB(255, 226, 255, 254),
     child: ListView(
       children: [
         SizedBox(
@@ -69,7 +71,7 @@ Widget buildDrawer(BuildContext context) {
               ),
             ),
             child: Container(
-              color: Color.fromARGB(255, 205, 245, 255),
+              color: const Color.fromARGB(255, 205, 245, 255),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Column(
@@ -94,11 +96,11 @@ Widget buildDrawer(BuildContext context) {
                           ),
                         ),
                         Row(
-                          children: [
-                            const SizedBox(
+                          children: const [
+                            SizedBox(
                               width: 100,
                             ),
-                            const Icon(
+                            Icon(
                               Icons.account_circle_outlined,
                               size: 60,
                             )
@@ -115,7 +117,7 @@ Widget buildDrawer(BuildContext context) {
         ListTile(
           title: criarTexto('Editar perfil'),
           onTap: () {
-            // Faça algo ao pressionar o item "Editar perfil"
+            Navigator.pushNamed(context, 'editarPerfil', arguments: null);
           },
           shape: const Border(
             bottom: BorderSide(width: 2, color: Colors.black),
