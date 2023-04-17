@@ -60,7 +60,7 @@ Widget buildDrawer(BuildContext context) {
     child: ListView(
       children: [
         SizedBox(
-          height: 80,
+          height: 60,
           child: DrawerHeader(
             padding: EdgeInsets.zero,
             decoration: const BoxDecoration(
@@ -93,31 +93,6 @@ Widget buildDrawer(BuildContext context) {
                             fontSize: 25,
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 27.0, bottom: 8),
-                          child: Text(
-                            'Usuário',
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 20.0),
-                              child: IconButton(
-                                  onPressed: () {
-                                    Navigator.pushNamed(
-                                        context, 'telaVerPerfil',
-                                        arguments: null);
-                                  },
-                                  icon: const Icon(
-                                      Icons.account_circle_outlined,
-                                      size: 60)),
-                            ),
-                          ],
-                        )
                       ],
                     ),
                   ],
@@ -153,6 +128,39 @@ Widget buildDrawer(BuildContext context) {
             bottom: BorderSide(width: 2, color: Colors.black),
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.only(top: 620.0),
+          child: ListTile(
+            title: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20.0),
+                child: Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 30.0),
+                      child: Text('Usuário', style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                      ),),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'telaVerPerfil', arguments: null);
+                      },
+                      icon: const Icon(
+                        Icons.account_circle_outlined,
+                        size: 60,
+                        color: Color.fromARGB(255, 53, 53, 53),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          ),
+        )
       ],
     ),
   );

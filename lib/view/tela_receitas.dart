@@ -21,63 +21,71 @@ class _TelaReceitasState extends State<TelaReceitas> {
       body: Column(
         children: [
           TextButton(
-  onPressed: () {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return SizedBox(
-          height: 150,
-          child: AlertDialog(
-            title: const Text("Receita 01"),
-            content: Column(
-              children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 180.0),
-                child: criarTexto('- remedio1'),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 180.0),
-                child: criarTexto('- remedio1'),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 180.0),
-                child: criarTexto('- remedio1'),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 180.0),
-                child: criarTexto('- remedio1'),
-              ),
-              criarTexto('Descrição do que deve ser feito com os medicamentos e tudo mais'),
-            ],),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return SizedBox(
+                    height: 150,
+                    child: AlertDialog(
+                      title: const Text(
+                        "Receitado dia - 17/04/2023",
+                        style: TextStyle(color: Colors.black, fontSize: 22),
+                      ),
+                      content: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 180.0),
+                            child: criarTexto('- remedio1'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 180.0),
+                            child: criarTexto('- remedio1'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 180.0),
+                            child: criarTexto('- remedio1'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 180.0),
+                            child: criarTexto('- remedio1'),
+                          ),
+                          criarTexto(
+                              'Descrição do que deve ser feito com os medicamentos e tudo mais'),
+                        ],
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text(
+                            "Fechar",
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
                 },
-                child: const Text("Fechar", style: TextStyle(
-                  fontSize: 30,
+              );
+            },
+            child: const Padding(
+              padding: EdgeInsets.only(top: 10.0),
+              child: Text(
+                "01. Receita da consulta tal",
+                style: TextStyle(
                   color: Colors.black,
-                ),),
+                  fontSize: 25,
+                ),
               ),
-            ],
-          ),
-        );
-      },
-    );
-  },
-  child: const Padding(
-    padding: EdgeInsets.only(top: 10.0),
-    child: Text("01. Receita da consulta tal", style: TextStyle(
-      color: Colors.black,
-      fontSize: 25,
-    ),),
-  ),
-)
-
+            ),
+          )
         ],
       ),
     );
   }
 }
-
-
