@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -71,7 +69,7 @@ Widget buildDrawer(BuildContext context) {
               ),
             ),
             child: Container(
-              color: const Color.fromARGB(255, 205, 245, 255),
+              color: const Color.fromARGB(255, 226, 255, 254),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Column(
@@ -95,15 +93,29 @@ Widget buildDrawer(BuildContext context) {
                             fontSize: 25,
                           ),
                         ),
-                        Row(
-                          children: const [
-                            SizedBox(
-                              width: 100,
+                        const Padding(
+                          padding: EdgeInsets.only(left: 27.0, bottom: 8),
+                          child: Text(
+                            'Usuário',
+                            style: TextStyle(
+                              fontSize: 18,
                             ),
-                            Icon(
-                              Icons.account_circle_outlined,
-                              size: 60,
-                            )
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 20.0),
+                              child: IconButton(
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                        context, 'telaVerPerfil',
+                                        arguments: null);
+                                  },
+                                  icon: const Icon(
+                                      Icons.account_circle_outlined,
+                                      size: 60)),
+                            ),
                           ],
                         )
                       ],
@@ -112,15 +124,6 @@ Widget buildDrawer(BuildContext context) {
                 ),
               ),
             ),
-          ),
-        ),
-        ListTile(
-          title: criarTexto('Editar perfil'),
-          onTap: () {
-            Navigator.pushNamed(context, 'editarPerfil', arguments: null);
-          },
-          shape: const Border(
-            bottom: BorderSide(width: 2, color: Colors.black),
           ),
         ),
         ListTile(
@@ -135,7 +138,7 @@ Widget buildDrawer(BuildContext context) {
         ListTile(
           title: criarTexto('Receitas'),
           onTap: () {
-            // Faça algo ao pressionar o item "Receitas"
+           Navigator.pushNamed(context, 'telaReceitas', arguments: null);
           },
           shape: const Border(
             bottom: BorderSide(width: 2, color: Colors.black),
@@ -145,15 +148,6 @@ Widget buildDrawer(BuildContext context) {
           title: criarTexto('Pesquisar instituição'),
           onTap: () {
             // Faça algo ao pressionar o item "Pesquisar instituição"
-          },
-          shape: const Border(
-            bottom: BorderSide(width: 2, color: Colors.black),
-          ),
-        ),
-        ListTile(
-          title: criarTexto('Favoritos'),
-          onTap: () {
-             Navigator.pushNamed(context, 'telaFavoritos', arguments: null);
           },
           shape: const Border(
             bottom: BorderSide(width: 2, color: Colors.black),

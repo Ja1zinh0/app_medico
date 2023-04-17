@@ -23,7 +23,7 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
     lista.add(Profissional('Especialista2', 'especialidade2'));
     lista.add(Profissional('Especialista3', 'especialidade3'));
     lista.add(Profissional('Especialista4', 'especialidade4'));
-    lista.add(Profissional('Especialista5', 'especialidade5'));
+    lista.add(Profissional('João', 'Especialista em corgis'));
     lista.add(Profissional('Especialista6', 'especialidade6'));
     lista.add(Profissional('Especialista7', 'especialidade7'));
     lista.add(Profissional('Especialista8', 'especialidade8'));

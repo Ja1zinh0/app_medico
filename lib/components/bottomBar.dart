@@ -13,7 +13,7 @@ Widget CustomBottom(context) {
         tabs: [
           GButton(
             onPressed: () {
-               Navigator.pushNamed(context, 'editarPerfil', arguments: null);
+               Navigator.pushNamed(context, 'telaVerPerfil', arguments: null);
             },
              margin: const EdgeInsets.only(left: 5,),
             icon: Icons.account_circle_outlined,
