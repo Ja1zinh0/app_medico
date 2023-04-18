@@ -1,8 +1,10 @@
 // ignore_for_file: unused_import
 
 import 'package:app_prototipo/view/tela_cadastro.dart';
+import 'package:app_prototipo/view/tela_calendario.dart';
 import 'package:app_prototipo/view/tela_recSenha.dart';
 import 'package:app_prototipo/view/tela_receitas.dart';
+import 'package:app_prototipo/view/tela_splash.dart';
 import 'package:flutter/material.dart';
 import 'view/tela_login.dart';
 import 'view/tela_sobre.dart';
@@ -17,7 +19,8 @@ void main() {
     MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'App de consulta',
-        initialRoute: 'telaLogin',
+        initialRoute: 'splashScreen',
+        
         routes: {
           'telaLogin': (context) => const TelaLogin(),
           'telaRecSenha': (context) => const RecuperarSenha(),
@@ -28,6 +31,9 @@ void main() {
           'telaFavoritos': (context) => const TelaFavoritos(),
           'telaVerPerfil': (context) => const VerPerfil(),
           'telaReceitas': (context) => const TelaReceitas(),
-        }),
+          'telaCalendario': (context) => const VerCalendario(),
+          'splashScreen': (context) => SplashScreen(),
+        },
+        ),
   );
 }

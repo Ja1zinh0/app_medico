@@ -104,7 +104,7 @@ Widget buildDrawer(BuildContext context) {
         ListTile(
           title: criarTexto('Calendário de consultas'),
           onTap: () {
-            // Faça algo ao pressionar o item "Calendário de consultas"
+            Navigator.pushNamed(context, 'telaCalendario', arguments: null);
           },
           shape: const Border(
             bottom: BorderSide(width: 2, color: Colors.black),
