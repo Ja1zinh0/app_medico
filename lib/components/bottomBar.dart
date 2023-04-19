@@ -26,13 +26,7 @@ Widget CustomBottom(context) {
             icon: Icons.home,
             iconSize: 45,
           ),
-          GButton(
-            onPressed: () {
-            },
-             margin: const EdgeInsets.only(right: 5),
-            icon: Icons.settings,
-            iconSize: 45,
-          ),
+
         ],
       ),
     ),

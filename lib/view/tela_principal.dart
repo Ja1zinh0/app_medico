@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/customAppBar.dart';
 
-
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({Key? key}) : super(key: key);
 
@@ -18,27 +17,22 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
       appBar: MyAppBar(),
       drawer: buildDrawer(context),
       endDrawer: buildEndDrawer(context),
-
       body: Column(
         children: [
-          const SizedBox(height: 150,),
-          Container(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 179, 179, 179),
-              border: Border.all(
-                color: Colors.white,
-                width: 2,
-              ),
-            ),
-            child: const Text(
-              'Caixa representando futura API do google maps',
-              style: TextStyle(
-                fontSize: 50,
-              ),
-            ),
-          ),
           const SizedBox(
-            height: 20,
+            height: 100,
+            child: Text('Imagem representando API do google Maps',
+             style: TextStyle(
+              fontSize: 27,
+              color: Colors.black,
+             ),),
+          ),
+          Container(
+            height: 750,
+            child: Image.asset(
+              'assets/images/maps.png',
+              scale: 1,
+            ),
           ),
         ],
       ),

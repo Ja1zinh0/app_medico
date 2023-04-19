@@ -40,6 +40,32 @@ class VerCalendarioState extends State<VerCalendario> {
                 _selectedDay = selectedDay;
                 _focusedDay = focusedDay;
               });
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: const Text(
+                        'Consulta com médico tal para tal procedimento etc etc',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text(
+                            'Fechar',
+                            style: TextStyle(
+                              color: Colors.black, 
+                              fontSize: 20),
+                          ),
+                          ),
+                    ],
+                  );
+                },
+              );
             },
             calendarFormat: _calendarFormat,
             onFormatChanged: (format) {
