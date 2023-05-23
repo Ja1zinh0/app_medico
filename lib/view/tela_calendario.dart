@@ -12,7 +12,6 @@ class VerCalendario extends StatefulWidget {
 
 class VerCalendarioState extends State<VerCalendario> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
-  DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
 
   @override
@@ -27,7 +26,6 @@ class VerCalendarioState extends State<VerCalendario> {
         children: [
           TableCalendar(
             onPageChanged: (focusedDay) {
-              _focusedDay = focusedDay;
             },
             firstDay: DateTime.utc(2023, 01, 01),
             lastDay: DateTime.utc(2025, 3, 14),
@@ -38,7 +36,6 @@ class VerCalendarioState extends State<VerCalendario> {
             onDaySelected: (selectedDay, focusedDay) {
               setState(() {
                 _selectedDay = selectedDay;
-                _focusedDay = focusedDay;
               });
               showDialog(
                 context: context,

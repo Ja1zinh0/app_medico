@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class LoginController {
@@ -10,17 +9,19 @@ class LoginController {
       email: email,
       password: senha,
     )
-        .then((resultado) {
-      FirebaseFirestore.instance.collection('usuarios').add(
-        {
-          'uid': resultado.user!.uid,
-          'nome': nome,
-        },
-      );
+        .then(
+      (resultado) {
+        FirebaseFirestore.instance.collection('usuarios').add(
+          {
+            'uid': resultado.user!.uid,
+            'nome': nome,
+          },
+        );
 
-      sucesso(context, 'Usuário criado com sucesso.');
-      Navigator.pushNamed(context, 'telaLogin');
-    }).catchError(
+        sucesso(context, 'Usuário criado com sucesso.');
+        Navigator.pushNamed(context, 'telaLogin');
+      },
+    ).catchError(
       (e) {
         switch (e.code) {
           case 'email-already-in-use':

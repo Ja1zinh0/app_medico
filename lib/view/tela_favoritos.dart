@@ -19,18 +19,6 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
 
   @override
   void initState() {
-    lista.add(Profissional('Especialista1', 'especialidade1'));
-    lista.add(Profissional('Especialista2', 'especialidade2'));
-    lista.add(Profissional('Especialista3', 'especialidade3'));
-    lista.add(Profissional('Especialista4', 'especialidade4'));
-    lista.add(Profissional('João', 'Especialista em corgis'));
-    lista.add(Profissional('Especialista6', 'especialidade6'));
-    lista.add(Profissional('Especialista7', 'especialidade7'));
-    lista.add(Profissional('Especialista8', 'especialidade8'));
-    lista.add(Profissional('Especialista9', 'especialidade9'));
-    lista.add(Profissional('Especialista10', 'especialidade10'));
-
-    index = -1;
     super.initState();
   }
 

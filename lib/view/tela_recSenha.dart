@@ -1,5 +1,4 @@
 // ignore: file_names
-import 'package:app_prototipo/view/tela_login.dart';
 import 'package:flutter/material.dart';
 
 import '../components/TextBox.dart';

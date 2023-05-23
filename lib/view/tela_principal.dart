@@ -9,7 +9,6 @@ class TelaPrincipal extends StatefulWidget {
 }
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
               color: Colors.black,
              ),),
           ),
-          Container(
+          SizedBox(
             height: 750,
             child: Image.asset(
               'assets/images/maps.png',
