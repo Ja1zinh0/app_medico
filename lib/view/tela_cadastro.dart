@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/TextBox.dart';
+import '../controller/login_controller.dart';
 
 class TelaCadastrar extends StatefulWidget {
   const TelaCadastrar({super.key});
@@ -13,6 +14,7 @@ class TelaCadastrarState extends State<TelaCadastrar> {
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
   var txtNome = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +48,7 @@ class TelaCadastrarState extends State<TelaCadastrar> {
                 height: 20,
               ),
               TextBox(
-                controller: txtNome,
+                CustomController: txtNome,
                 context: context,
                 labelText: 'Nome',
                 labelIcon: Icons.person_2,
@@ -55,7 +57,7 @@ class TelaCadastrarState extends State<TelaCadastrar> {
                 height: 20,
               ),
               TextBox(
-                controller: txtEmail,
+                CustomController: txtEmail,
                 context: context,
                 labelText: 'Email',
                 labelIcon: Icons.email_rounded,
@@ -64,10 +66,11 @@ class TelaCadastrarState extends State<TelaCadastrar> {
                 height: 20,
               ),
               TextBox(
-                controller: txtSenha,
+                CustomController: txtSenha,
                 context: context,
                 labelText: 'Senha',
                 labelIcon: Icons.key,
+                obscureTextEnabled: true,
               ),
               const SizedBox(
                 height: 50,
@@ -82,7 +85,14 @@ class TelaCadastrarState extends State<TelaCadastrar> {
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    LoginController().criarConta(
+                      context,
+                      txtNome.text,
+                      txtEmail.text,
+                      txtSenha.text,
+                    );
+                  },
                   child: const Text(
                     'Cadastrar',
                     style: TextStyle(

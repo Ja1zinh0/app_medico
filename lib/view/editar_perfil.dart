@@ -74,7 +74,6 @@ class _EditarPerfilState extends State<EditarPerfil> {
               Padding(
                 padding: const EdgeInsets.only(right: 70.0, top: 15),
                 child: TextBox(
-                  controller: '',
                   context: context,
                   labelText: '',
                   labelIcon: Icons.person,
@@ -119,7 +118,6 @@ class _EditarPerfilState extends State<EditarPerfil> {
               Padding(
                 padding: const EdgeInsets.only(right: 70.0, top: 15),
                 child: TextBox(
-                  controller: '',
                   context: context,
                   labelText: '',
                   labelIcon: Icons.email_rounded,
@@ -164,7 +162,6 @@ class _EditarPerfilState extends State<EditarPerfil> {
               Padding(
                 padding: const EdgeInsets.only(right: 70.0, top: 15),
                 child: TextBox(
-                  controller: '',
                   context: context,
                   labelText: '',
                   labelIcon: Icons.phone_android,

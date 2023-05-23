@@ -5,11 +5,14 @@ Widget TextBox({
   String labelText = '',
   IconData labelIcon = Icons.person,
   Color enabledBorderColor = Colors.black,
-  controller = '',
+  TextEditingController? CustomController,
+  bool obscureTextEnabled = false,
 }) {
   return SizedBox(
     width: MediaQuery.of(context).size.width - 100,
     child: TextField(
+      controller: CustomController,
+      obscureText: obscureTextEnabled,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(2),
         labelText: labelText,

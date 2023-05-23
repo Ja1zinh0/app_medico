@@ -3,6 +3,7 @@ import 'package:app_prototipo/view/tela_login.dart';
 import 'package:flutter/material.dart';
 
 import '../components/TextBox.dart';
+import '../controller/login_controller.dart';
 
 class RecuperarSenha extends StatefulWidget {
   const RecuperarSenha({super.key});
@@ -12,6 +13,8 @@ class RecuperarSenha extends StatefulWidget {
 }
 
 class _RecuperarSenhaState extends State<RecuperarSenha> {
+  var txtEmailEsqueceuSenha = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +28,7 @@ class _RecuperarSenhaState extends State<RecuperarSenha> {
               children: [
                 IconButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, 'telaLogin',
-                          arguments: null);
+                       Navigator.pushNamed(context, 'telaLogin');
                     },
                     icon: const Icon(Icons.arrow_back_ios_new_outlined)),
                 const SizedBox(
@@ -60,10 +62,11 @@ class _RecuperarSenhaState extends State<RecuperarSenha> {
               height: 25,
             ),
             TextBox(
-                context: context,
-                labelText: 'Email',
-                labelIcon: Icons.email_rounded,
-              ),
+              CustomController: txtEmailEsqueceuSenha,
+              context: context,
+              labelText: 'Email',
+              labelIcon: Icons.email_rounded,
+            ),
             const SizedBox(
               height: 35,
             ),
@@ -77,7 +80,12 @@ class _RecuperarSenhaState extends State<RecuperarSenha> {
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  LoginController().esqueceuSenha(
+                        context,
+                        txtEmailEsqueceuSenha.text,
+                      );
+                },
                 child: const Text(
                   'Enviar',
                   style: TextStyle(

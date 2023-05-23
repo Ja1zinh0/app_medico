@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/TextBox.dart';
+import '../controller/login_controller.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
@@ -11,7 +12,7 @@ class TelaLogin extends StatefulWidget {
 class _TelaLoginState extends State<TelaLogin> {
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +38,7 @@ class _TelaLoginState extends State<TelaLogin> {
                         height: 30,
                       ),
                       TextBox(
-                        controller: txtEmail,
+                        CustomController: txtEmail,
                         context: context,
                         labelText: 'Email',
                         labelIcon: Icons.email_rounded,
@@ -46,10 +47,11 @@ class _TelaLoginState extends State<TelaLogin> {
                         height: 10,
                       ),
                       TextBox(
-                        controller: txtSenha,
+                        CustomController: txtSenha,
                         context: context,
                         labelText: 'Senha',
                         labelIcon: Icons.key,
+                        obscureTextEnabled: true,
                       ),
                       const SizedBox(
                         height: 5,
@@ -93,10 +95,10 @@ class _TelaLoginState extends State<TelaLogin> {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(
+                            LoginController().login(
                               context,
-                              'telaPrincipal',
-                              arguments: null,
+                              txtEmail.text,
+                              txtSenha.text,
                             );
                           },
                           child: const Text(
