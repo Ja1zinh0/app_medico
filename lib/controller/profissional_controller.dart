@@ -11,11 +11,11 @@ class ProfissionalController {
   //
   void adicionar(context, Profissional t) {
     FirebaseFirestore.instance
-        .collection('clientes')
+        .collection('profissionais')
         .add(t.toJson())
-        .then((value) => sucesso(context, 'Cliente adicionado com sucesso'))
+        .then((value) => sucesso(context, 'profissional adicionado com sucesso'))
         .catchError(
-            (e) => erro(context, 'Não foi possível adicionar o cliente.'))
+            (e) => erro(context, 'Não foi possível adicionar o profissional.'))
         .whenComplete(() => Navigator.pop(context));
   }
 
@@ -24,12 +24,12 @@ class ProfissionalController {
   //
   void atualizar(context, id, Profissional t) {
     FirebaseFirestore.instance
-        .collection('clientes')
+        .collection('profissionais')
         .doc(id)
         .update(t.toJson())
-        .then((value) => sucesso(context, 'Cliente atualizado com sucesso'))
+        .then((value) => sucesso(context, 'profissional atualizado com sucesso'))
         .catchError(
-            (e) => erro(context, 'Não foi possível atualizar o cliente.'))
+            (e) => erro(context, 'Não foi possível atualizar o profissional.'))
         .whenComplete(() => Navigator.pop(context));
   }
 
@@ -38,19 +38,19 @@ class ProfissionalController {
   //
   void excluir(context, id) {
     FirebaseFirestore.instance
-        .collection('clientes')
+        .collection('profissionais')
         .doc(id)
         .delete()
-        .then((value) => sucesso(context, 'Cliente excluído com sucesso'))
-        .catchError((e) => erro(context, 'Não foi possível excluir o cliente.'));
+        .then((value) => sucesso(context, 'profissional excluído com sucesso'))
+        .catchError((e) => erro(context, 'Não foi possível excluir o profissional.'));
   }
 
   //
-  // LISTAR todas as clientes da coleção
+  // LISTAR todas as profissionais da coleção
   //
   listar() {
     return FirebaseFirestore.instance
-        .collection('clientes')
+        .collection('profissionais')
         .where('uid', isEqualTo: LoginController().idUsuario());
   }
   
