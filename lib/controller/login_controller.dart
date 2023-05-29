@@ -94,10 +94,10 @@ class LoginController {
 void erro(context, String msg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: Colors.redAccent.withOpacity(0.4),
+      backgroundColor: Color.fromARGB(255, 255, 53, 53).withOpacity(0.4),
       content: Text(
         msg,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.black),
       ),
       duration: const Duration(seconds: 3),
     ),
@@ -110,10 +110,10 @@ void erro(context, String msg) {
 void sucesso(context, String msg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: Colors.greenAccent.withOpacity(0.4),
+      backgroundColor: Color.fromARGB(255, 12, 240, 23).withOpacity(0.4),
       content: Text(
         msg,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.black),
       ),
       duration: const Duration(seconds: 3),
     ),

@@ -13,7 +13,7 @@ class ProfissionalController {
     FirebaseFirestore.instance
         .collection('profissionais')
         .add(t.toJson())
-        .then((value) => sucesso(context, 'profissional adicionado com sucesso'))
+        .then((value) => sucesso(context, 'Profissional adicionado com sucesso'))
         .catchError(
             (e) => erro(context, 'Não foi possível adicionar o profissional.'))
         .whenComplete(() => Navigator.pop(context));
@@ -27,7 +27,7 @@ class ProfissionalController {
         .collection('profissionais')
         .doc(id)
         .update(t.toJson())
-        .then((value) => sucesso(context, 'profissional atualizado com sucesso'))
+        .then((value) => sucesso(context, 'Profissional atualizado com sucesso'))
         .catchError(
             (e) => erro(context, 'Não foi possível atualizar o profissional.'))
         .whenComplete(() => Navigator.pop(context));
@@ -41,7 +41,7 @@ class ProfissionalController {
         .collection('profissionais')
         .doc(id)
         .delete()
-        .then((value) => sucesso(context, 'profissional excluído com sucesso'))
+        .then((value) => sucesso(context, 'Profissional excluído com sucesso'))
         .catchError((e) => erro(context, 'Não foi possível excluir o profissional.'));
   }
 

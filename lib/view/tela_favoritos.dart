@@ -159,7 +159,7 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
       builder: (BuildContext context) {
         // retorna um objeto do tipo Dialog
         return AlertDialog(
-          title: const Text("Adicionar favoritos"),
+          title: const Text("Adicionar favoritos", textAlign: TextAlign.center,),
           content: SizedBox(
             height: 250,
             width: 300,
@@ -169,7 +169,7 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
                   controller: txtNome,
                   decoration: const InputDecoration(
                     labelText: 'Nome',
-                    prefixIcon: Icon(Icons.description),
+                    prefixIcon: Icon(Icons.person_2_outlined),
                     border: OutlineInputBorder(),
                   ),
                 ),
