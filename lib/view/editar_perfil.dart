@@ -1,7 +1,12 @@
+import 'package:app_prototipo/controller/login_controller.dart';
+import 'package:app_prototipo/model/usuarios.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app_prototipo/components/bottomBar.dart';
 import '../components/customAppBar.dart';
 import '../components/TextBox.dart';
+import '../controller/usuario_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EditarPerfil extends StatefulWidget {
   const EditarPerfil({super.key});
@@ -11,8 +16,12 @@ class EditarPerfil extends StatefulWidget {
 }
 
 class _EditarPerfilState extends State<EditarPerfil> {
+  var txtNome = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
+    User? id = FirebaseAuth.instance.currentUser;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: MyAppBar(),
@@ -45,6 +54,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                   ),
+                  
                   Padding(
                     padding: const EdgeInsets.only(left: 94.0, top: 5),
                     child: SizedBox(
@@ -57,7 +67,9 @@ class _EditarPerfilState extends State<EditarPerfil> {
                             borderRadius: BorderRadius.circular(30.0),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          
+                        },
                         child: const Text(
                           'Editar',
                           style: TextStyle(
@@ -74,6 +86,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
               Padding(
                 padding: const EdgeInsets.only(right: 70.0, top: 15),
                 child: TextBox(
+                  CustomController: txtNome,
                   context: context,
                   labelText: '',
                   labelIcon: Icons.person,
@@ -89,6 +102,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                   ),
+                  
                   Padding(
                     padding: const EdgeInsets.only(left: 164.0, top: 12),
                     child: SizedBox(
@@ -204,6 +218,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
                       ),
                     ),
                     onPressed: () {
+                      atualizarUsuario(context, id, txtNome.text);
                       mensagem('Perfil salvo com sucesso');
                     },
                     child: const Text(
@@ -238,6 +253,23 @@ class _EditarPerfilState extends State<EditarPerfil> {
         ),
         backgroundColor: const Color(0xFF96E4F4),
       ),
+    );
+  }
+
+  Future atualizarUsuario(context, uid, nome) async {
+    String docId = '';
+    await FirebaseFirestore.instance
+    .collection('usuarios')
+    .where('uid', isEqualTo: LoginController().idUsuario())
+    .get()
+    .then((resultado) {
+      docId = resultado.docs[0].id.toString();
+    },);
+
+    FirebaseFirestore.instance.
+    collection('usuarios')
+    .doc(docId)
+    .update({'nome': nome,}
     );
   }
 }

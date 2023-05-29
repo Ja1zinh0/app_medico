@@ -79,6 +79,7 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
     return StreamBuilder<QuerySnapshot>(
       stream: ProfissionalController().listar().snapshots(),
       builder: (context, snapshot) {
+        
         switch (snapshot.connectionState) {
           case ConnectionState.none:
             return const Center(
