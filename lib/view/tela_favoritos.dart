@@ -79,12 +79,9 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
     return StreamBuilder<QuerySnapshot>(
       stream: ProfissionalController().listar().snapshots(),
       builder: (context, snapshot) {
-        
         switch (snapshot.connectionState) {
           case ConnectionState.none:
-            return const Center(
-              child: Text('Não foi possível conectar.'),
-            );
+            return const Center();
           case ConnectionState.waiting:
             return const Center(
               child: CircularProgressIndicator(),
@@ -106,39 +103,27 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
                       ),
                       title: Text(item['nome']),
                       subtitle: Text(item['espec']),
+                      trailing: IconButton(
+                        onPressed: () {
+                          ProfissionalController().excluir(context, id);
+                        },
+                        icon: const Stack(
+                          children: [
+                            Icon(
+                              Icons.star,
+                              color: Colors.yellow,
+                            ),
+                            Icon(
+                              Icons.star_border,
+                              color: Colors.black,
+                            ),
+                          ],
+                        ),
+                      ),
                       onTap: () {
                         txtNome.text = item['nome'];
                         txtEspecializacao.text = item['espec'];
                         salvarTarefa(context, docId: id);
-                      },
-                      onLongPress: () {
-                        showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content: SizedBox(
-                                  width: 15,
-                                  height: 50,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      const Text('Deletar', style: TextStyle(fontSize: 40),),
-                                      Padding(
-                                        padding: const EdgeInsets.only(bottom: 20.0),
-                                        child: IconButton(
-                                          onPressed: () {
-                                            ProfissionalController().excluir(context, id);
-                                             Navigator.pop(context);
-                                          },
-                                          icon: const Icon(Icons.delete, size: 50,),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                actions: [],
-                              );
-                            });
                       },
                     ),
                   );
@@ -158,9 +143,11 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        // retorna um objeto do tipo Dialog
         return AlertDialog(
-          title: const Text("Adicionar favoritos", textAlign: TextAlign.center,),
+          title: const Text(
+            "Adicionar favoritos",
+            textAlign: TextAlign.center,
+          ),
           content: SizedBox(
             height: 250,
             width: 300,
@@ -168,20 +155,22 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
               children: [
                 TextField(
                   controller: txtNome,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Nome',
-                    prefixIcon: Icon(Icons.person_2_outlined),
-                    border: OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.person_2_outlined),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(40.0),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 15),
                 TextField(
                   controller: txtEspecializacao,
-                  maxLines: 5,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Especialização',
-                    alignLabelWithHint: true,
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(40.0),
+                    ),
                   ),
                 ),
               ],
@@ -190,7 +179,10 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
           actionsPadding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
           actions: [
             TextButton(
-              child: const Text("fechar"),
+              child: const Text(
+                "fechar",
+                style: TextStyle(color: Colors.black),
+              ),
               onPressed: () {
                 txtNome.clear();
                 txtEspecializacao.clear();
@@ -198,7 +190,13 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
               },
             ),
             ElevatedButton(
-              child: const Text("salvar"),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              ),
+              child: const Text(
+                "salvar",
+                style: TextStyle(color: Colors.black),
+              ),
               onPressed: () {
                 var t = Profissional(
                   LoginController().idUsuario(),
@@ -208,14 +206,8 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
                 txtNome.clear();
                 txtEspecializacao.clear();
                 if (docId == null) {
-                  //
-                  // ADICIONAR TAREFA
-                  //
                   ProfissionalController().adicionar(context, t);
                 } else {
-                  //
-                  // ATUALIZAR TAREFA
-                  //
                   ProfissionalController().atualizar(context, docId, t);
                 }
               },

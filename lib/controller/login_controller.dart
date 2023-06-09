@@ -104,9 +104,6 @@ void erro(context, String msg) {
   );
 }
 
-//
-// MENSAGEM DE SUCESSO
-//
 void sucesso(context, String msg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(

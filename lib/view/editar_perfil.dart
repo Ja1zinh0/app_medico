@@ -1,11 +1,9 @@
 import 'package:app_prototipo/controller/login_controller.dart';
-import 'package:app_prototipo/model/usuarios.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app_prototipo/components/bottomBar.dart';
 import '../components/customAppBar.dart';
 import '../components/TextBox.dart';
-import '../controller/usuario_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EditarPerfil extends StatefulWidget {
@@ -30,8 +28,8 @@ class _EditarPerfilState extends State<EditarPerfil> {
       bottomNavigationBar: CustomBottom(context),
       body: Column(
         children: [
-          Row(
-            children: const [
+          const Row(
+            children: [
               Padding(
                 padding: EdgeInsets.only(top: 30.0, left: 6),
                 child: Icon(

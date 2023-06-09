@@ -5,9 +5,6 @@ import '../model/usuarios.dart';
 import 'login_controller.dart';
 
 class UsuariosController {
-  //
-  // ADICIONAR uma nova Profissional
-  //
   void adicionar(context, Usuarios t) {
     FirebaseFirestore.instance
         .collection('usuarios')
@@ -17,10 +14,6 @@ class UsuariosController {
             (e) => erro(context, 'Não foi possível adicionar o usuario.'))
         .whenComplete(() => Navigator.pop(context));
   }
-
-  //
-  // ATUALIZAR
-  //
   void atualizar(context, id, Usuarios t) {
     FirebaseFirestore.instance
         .collection('usuarios')
@@ -31,10 +24,6 @@ class UsuariosController {
             (e) => erro(context, 'Não foi possível atualizar o usuario.'))
         .whenComplete(() => Navigator.pop(context));
   }
-
-  //
-  // EXCLUIR
-  //
   void excluir(context, id) {
     FirebaseFirestore.instance
         .collection('usuarios')
@@ -43,10 +32,6 @@ class UsuariosController {
         .then((value) => sucesso(context, 'usuario excluído com sucesso'))
         .catchError((e) => erro(context, 'Não foi possível excluir o usuario.'));
   }
-
-  //
-  // LISTAR todas as usuarios da coleção
-  //
   listar() {
     return FirebaseFirestore.instance
         .collection('usuarios')

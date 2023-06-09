@@ -56,16 +56,16 @@ class _TelaReceitasState extends State<TelaReceitas> {
             child: listarContatos(),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FloatingActionButton(
                 onPressed: () {
                   salvarTarefa(context);
                 },
-                child: Icon(Icons.add),
                 backgroundColor: const Color.fromARGB(255, 51, 51, 51),
+                child: const Icon(Icons.edit_document),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 16,
               ),
             ],
@@ -88,7 +88,7 @@ class _TelaReceitasState extends State<TelaReceitas> {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
             return const Center(
-              child: Text('Não foi possível conectar.'),
+     
             );
           case ConnectionState.waiting:
             return const Center(
@@ -108,45 +108,6 @@ class _TelaReceitasState extends State<TelaReceitas> {
                       txtDescricao.text = item['descricao'];
                       salvarTarefa(context, docId: id);
                     },
-                    onLongPress: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            content: SizedBox(
-                              width: 15,
-                              height: 50,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  const Text(
-                                    'Deletar',
-                                    style: TextStyle(fontSize: 40),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(bottom: 20.0),
-                                    child: IconButton(
-                                      onPressed: () {
-                                        ReceitasController()
-                                            .excluir(context, id);
-                                        Navigator.pop(context);
-                                      },
-                                      icon: const Icon(
-                                        Icons.medical_services,
-                                        size: 50,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            actions: [],
-                          );
-                        },
-                      );
-                    },
                     child: ListTile(
                       leading: const Icon(
                         Icons.sick,
@@ -157,6 +118,16 @@ class _TelaReceitasState extends State<TelaReceitas> {
                         item['nomeReceita'],
                       ),
                       subtitle: Text(item['data']),
+
+                      trailing: IconButton(
+                        onPressed: () {
+                          ReceitasController().excluir(context, id);
+                        },
+                        icon: const Icon(
+                          Icons.medical_services,
+                          color: Colors.black,
+                        ),
+                      ),
                     ),
                   );
                 },
@@ -175,9 +146,8 @@ class _TelaReceitasState extends State<TelaReceitas> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        // retorna um objeto do tipo Dialog
         return AlertDialog(
-          title: const Text("Adicionar favoritos"),
+          title: const Text("Adicionar receita", textAlign: TextAlign.center,),
           content: SizedBox(
             height: 500,
             width: 300,
@@ -187,7 +157,6 @@ class _TelaReceitasState extends State<TelaReceitas> {
                   controller: txtNomeReceitas,
                   decoration: const InputDecoration(
                     labelText: 'Nome da receita',
-                    prefixIcon: Icon(Icons.description),
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -220,21 +189,18 @@ class _TelaReceitasState extends State<TelaReceitas> {
               },
             ),
             ElevatedButton(
-              child: const Text("adicionar"),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              ),
+              child: const Text("adicionar", style: TextStyle(color: Colors.black),),
               onPressed: () {
                 var t = Receitas(LoginController().idUsuario(),
                     txtNomeReceitas.text, txtDescricao.text, formattedDate);
                 txtNomeReceitas.clear();
                 txtDescricao.clear();
                 if (docId == null) {
-                  //
-                  // ADICIONAR TAREFA
-                  //
                   ReceitasController().adicionar(context, t);
                 } else {
-                  //
-                  // ATUALIZAR TAREFA
-                  //
                   ReceitasController().atualizar(context, docId, t);
                 }
               },
