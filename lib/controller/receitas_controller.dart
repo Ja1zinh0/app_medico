@@ -33,7 +33,7 @@ class ReceitasController {
         .then((value) => sucesso(context, 'Receita excluída com sucesso'))
         .catchError((e) => erro(context, 'Não foi possível excluir a receita.'));
   }
-  listar() {
+  listar({String? orderBy}) {
     return FirebaseFirestore.instance
         .collection('receitas')
         .where('uid', isEqualTo: LoginController().idUsuario());

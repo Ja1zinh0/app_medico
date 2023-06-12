@@ -75,69 +75,72 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
     );
   }
 
-  listarContatos() {
-    return StreamBuilder<QuerySnapshot>(
-      stream: ProfissionalController().listar().snapshots(),
-      builder: (context, snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.none:
-            return const Center();
-          case ConnectionState.waiting:
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          default:
-            final dados = snapshot.requireData;
-            if (dados.size > 0) {
-              return ListView.builder(
-                itemCount: dados.size,
-                itemBuilder: (context, index) {
-                  String id = dados.docs[index].id;
-                  dynamic item = dados.docs[index].data();
-                  return Card(
-                    child: ListTile(
-                      leading: const Icon(
-                        Icons.account_circle_outlined,
-                        size: 40,
-                        color: Color.fromARGB(255, 90, 90, 90),
-                      ),
-                      title: Text(item['nome']),
-                      subtitle: Text(item['espec']),
-                      trailing: IconButton(
-                        onPressed: () {
-                          ProfissionalController().excluir(context, id);
-                        },
-                        icon: const Stack(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow,
-                            ),
-                            Icon(
-                              Icons.star_border,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ),
-                      ),
-                      onTap: () {
-                        txtNome.text = item['nome'];
-                        txtEspecializacao.text = item['espec'];
-                        salvarTarefa(context, docId: id);
-                      },
+listarContatos() {
+  return StreamBuilder<QuerySnapshot>(
+    stream: ProfissionalController().listar().snapshots(),
+    builder: (context, snapshot) {
+      switch (snapshot.connectionState) {
+        case ConnectionState.none:
+          return const Center();
+        case ConnectionState.waiting:
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        default:
+          final dados = snapshot.data!.docs;
+          List<QueryDocumentSnapshot> sortedDados = List.from(dados);
+          sortedDados.sort((a, b) => (a.get('nome') as String).compareTo(b.get('nome') as String));
+          if (sortedDados.length > 0) {
+            return ListView.builder(
+              itemCount: sortedDados.length,
+              itemBuilder: (context, index) {
+                String id = sortedDados[index].id;
+                Map<String, dynamic> item = sortedDados[index].data() as Map<String, dynamic>;
+                return Card(
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.account_circle_outlined,
+                      size: 40,
+                      color: Color.fromARGB(255, 90, 90, 90),
                     ),
-                  );
-                },
-              );
-            } else {
-              return const Center(
-                child: Text('Nenhuma tarefa encontrada.'),
-              );
-            }
-        }
-      },
-    );
-  }
+                    title: Text(item['nome'] as String),
+                    subtitle: Text(item['espec'] as String),
+                    trailing: IconButton(
+                      onPressed: () {
+                        ProfissionalController().excluir(context, id);
+                      },
+                      icon: const Stack(
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: Colors.yellow,
+                          ),
+                          Icon(
+                            Icons.star_border,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                    ),
+                    onTap: () {
+                      txtNome.text = item['nome'] as String;
+                      txtEspecializacao.text = item['espec'] as String;
+                      salvarTarefa(context, docId: id);
+                    },
+                  ),
+                );
+              },
+            );
+          } else {
+            return const Center(
+              child: Text('Nenhuma tarefa encontrada.'),
+            );
+          }
+      }
+    },
+  );
+}
+
 
   void salvarTarefa(context, {docId}) {
     showDialog(
