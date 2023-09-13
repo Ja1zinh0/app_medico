@@ -14,6 +14,8 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 <h2> Desenvolvedores:
 
 João Henrique Jorge Carlos
+<p>
 Camila Alves Frazão
+</p>
 
 O aplicativo foi desenvolvido como um projeto acadêmico para a matéria de programação de dispositivos móveis, ele não está concluído com todas as funcionalidades, mas coisas como cadastro de usuário, autenticação, entre outras funcionalidades disponíveis no app funcionam normalmente.
